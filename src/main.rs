@@ -20,7 +20,7 @@ use cortex_m_semihosting::{debug, hprintln};
 fn main() -> ! {
     hprintln!("Launching light ring").unwrap();
 
-
+    ioport::init_leds();
     
     loop {
         // your code goes here
