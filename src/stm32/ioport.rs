@@ -1,4 +1,10 @@
-use volatile_register::{RW, RO, WO};
+/** IOPORTS **/
+pub const PORTA: u32 = 0x4800_0000;
+pub const PORTB: u32 = 0x4800_0400;
+pub const PORTC: u32 = 0x4800_0C00;
+pub const PORTD: u32 = 0x4800_1000;
+pub const PORTE: u32 = 0x4800_1400;
+pub const PORTF: u32 = 0x4800_1800;
 
 //STM32F3Discovery LED Ring, defined from top going clockwise around the ring
 pub const LED0: u16 = 0x0200;		//PE 9, LD3, North: Red
@@ -10,18 +16,14 @@ pub const LED5: u16 = 0x4000;		//PE14. LD8, South-West: Orange
 pub const LED6: u16 = 0x8000;		//PE15, LD6, West: Green
 pub const LED7: u16 = 0x0100;		//PE 8, LD4, North-West: Blue
 
-pub const PORTA: u32 = 0x4800_0000;
-pub const PORTB: u32 = 0x4800_0400;
-pub const PORTC: u32 = 0x4800_0C00;
-pub const PORTD: u32 = 0x4800_1000;
-pub const PORTE: u32 = 0x4800_1400;
-pub const PORTF: u32 = 0x4800_1800;
+use volatile_register::{RW, RO, WO};
 
 pub enum PinState{
 	PinSet = 0b1,
 	PinReset = 0b0
 }
 
+#[allow(dead_code)]
 pub enum PinMode{
 	ModeInput,
 	ModeOutput,
